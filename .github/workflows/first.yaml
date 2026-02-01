@@ -1,6 +1,15 @@
 name: first-workflow
 on:
-  push
+  workflow_dispatch:
+    inputs:
+      listqwer:
+        description: 'list513'
+        required: true
+        type: choice
+        options:
+          - empty513
+          - qwert
+          - wasd
 jobs:
   hello:
     runs-on: ubuntu-latest
