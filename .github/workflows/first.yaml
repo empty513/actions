@@ -12,7 +12,17 @@ on:
           - wasd
 jobs:
   hello:
+    env:
+      EMPTY513: boss
     runs-on: ubuntu-latest
     steps:
-      - name: say-hello
-        run: echo hello ubun
+      - name: say-dispatch
+        run: echo ${{ github.event.inputs.listqwer }}
+      - name: say-whoami
+        run: echo ${{ env.EMPTY513 }}
+      - name: say-workspace
+        run: echo ${{ github.workspace }}
+      - name: say-workspace
+        run: echo ${{ github.actor }}
+      - name: say-gh
+        run: echo ${{ vars.GHENV }}
