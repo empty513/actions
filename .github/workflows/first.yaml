@@ -12,17 +12,19 @@ on:
           - wasd
 jobs:
   hello:
-    env:
-      EMPTY513: boss
     runs-on: ubuntu-latest
     steps:
-      - name: say-dispatch
-        run: echo ${{ github.event.inputs.listqwer }}
-      - name: say-whoami
-        run: echo ${{ env.EMPTY513 }}
-      - name: say-workspace
-        run: echo ${{ github.workspace }}
-      - name: say-workspace
-        run: echo ${{ github.actor }}
-      - name: say-gh
-        run: echo ${{ vars.GHENV }}
+      - name: mistake
+        run: ecco 
+      - name: if-succes
+        if: success()
+        run: echo succes >> art.txt
+      - name: if-fail
+        if: failure()
+        run: echo failure >> art.txt
+      - name: save-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: result
+          path: art.txt
+
