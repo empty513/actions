@@ -1,11 +1,6 @@
 name: first-workflow
 on:
   workflow_dispatch:
-    inputs:
-      un:
-        description: 'wqerty'
-        required: true
-        type: string
 
 jobs:
   test:
@@ -15,4 +10,4 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: test
-        run: echo hello
+        run: sleep 20
