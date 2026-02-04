@@ -16,3 +16,18 @@ jobs:
         uses: ./.github/actions/testaction
         with:
           username: ${{ inputs.un }}
+  test-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        me: [empty513, ivan, johan]
+        whoami: [boss, pro, superman]
+        exclude:
+          - me: ivan
+            whoami: superman
+        include:
+          - me: khotko
+            whoami: ultraman
+    steps:
+      - name: iam
+        run: echo '${{ matrix.me }} is ${{ matrix.whoami }}'
