@@ -1,0 +1,13 @@
+name: 'myaction'
+description: 'description'
+inputs:
+  username:
+    description: 'inp'
+    required: true
+    type: string
+runs:
+  using: "composite"
+  steps:
+    - name: username
+      shell: bash
+      run: echo ${{ inputs.username }}

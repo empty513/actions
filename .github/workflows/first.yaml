@@ -2,30 +2,16 @@ name: first-workflow
 on:
   workflow_dispatch:
     inputs:
-      listqwer:
-        description: 'list513'
+      un:
+        description: 'wqerty'
         required: true
-        type: choice
-        options:
-          - empty513
-          - qwert
-          - wasd
+        type: string
+
 jobs:
-  hello:
+  say-my-name:
     runs-on: ubuntu-latest
     steps:
-      - name: mistake
-        run: ecco 
-      - name: if-succes
-        if: success()
-        run: echo succes >> art.txt
-      - name: if-fail
-        if: failure()
-        run: echo failure >> art.txt
-      - name: save-artifact
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: sayq
+        uses: ./github/actions/testaction
         with:
-          name: result
-          path: art.txt
-
+          username: ${{ inputs.un }}
